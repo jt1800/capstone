@@ -1,0 +1,31 @@
+---
+title: "Proposal Outline"
+author: "j"
+date: "October 18, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. What is the problem you want to solve?
+Predicting the average rating for businesses without many reviews. 
+
+2. Who is your client and why do they care about this problem? In other words, what
+will your client DO or DECIDE based on your analysis that they wouldn’t have
+otherwise?
+
+
+
+3. What data are you going to use for this? How will you acquire this data?
+Yelp provides a data set for their student data challenge, to get insights about new ways to use the data they collect. 
+
+4. In brief, outline your approach to solving this problem (knowing that this might
+change later).
+I will develop a user reliability score based on whether the user's reviews match the average rating for businesses with many reviews. Also, by analyzing the words used in reviews, I will predict the rating of a business based on the text of the review. Both of these metrics can be combined to use as much information as possible to predict the average rating of businesses that have few reviews, to give information to users and businesses about their likely long-term performance. 
+
+
+5. What are your deliverables? Typically, this would include code, along with a paper
+and/or a slide deck.
+Code, and a paper outlining the results of the analysis.
