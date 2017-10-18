@@ -3,10 +3,6 @@ title: "Proposal Outline"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 1. What is the problem you want to solve?
 
 Predicting the average rating for businesses without many reviews. 
