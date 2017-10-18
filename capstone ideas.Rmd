@@ -11,31 +11,12 @@ Spotify has a list of the daily top 200 songs for every country. An analysis of 
 
 
 #San Francisco Bike Share
+
 Bike Rentals in San Francisco can be analyzed to reveal patterns in bike usage, to predict where pedestrians will be during peak business hours and determine the best location to start a business. 
 
 
 
 #Yelp
+
 Yelp has review data for businesses, but for businesses with small numbers of ratings, their average score might not be a good indicator of their quality. By analyzing word frequency in reviews and giving more weight to reviewers with good reputation we can predict the eventual score of the business, giving better information to users looking for new businesses to visit. 
 
-
-1. What is the problem you want to solve?
-Predicting the average rating for businesses without many reviews. 
-
-2. Who is your client and why do they care about this problem? In other words, what
-will your client DO or DECIDE based on your analysis that they wouldn’t have
-otherwise?
-
-
-
-3. What data are you going to use for this? How will you acquire this data?
-Yelp provides a data set for their student data challenge, to get insights about new ways to use the data they collect. 
-
-4. In brief, outline your approach to solving this problem (knowing that this might
-change later).
-I will develop a user reliability score based on whether the user's reviews match the average rating for businesses with many reviews. Also, by analyzing the words used in reviews, I will predict the rating of a business based on the text of the review. Both of these metrics can be combined to use as much information as possible to predict the average rating of businesses that have few reviews, to give information to users and businesses about their likely long-term performance. 
-
-
-5. What are your deliverables? Typically, this would include code, along with a paper
-and/or a slide deck.
-Code, and a paper outlining the results of the analysis.
