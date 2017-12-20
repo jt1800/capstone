@@ -1,22 +1,39 @@
 
+library(hashmap)
 
-#install.packages('jsonlite')
-library(jsonlite)
-library(dplyr)
+setwd("C:/code/R/capstone/")
 
-lines <- readLines(file("D:/code/R/capstone/dataset/user.json"), n = 10000)
+load("rdata/users.RData")
+load("rdata/businesses.RData")
+load("rdata/reviews.RData")
 
-users <- data.frame()
 
-for (i in 1:length(lines)){
-  user <- fromJSON(lines[i])
-  user$friends <- length(user$friends)
-  user$elite <- length(user$elite)
-  users <- rbind(users, data.frame(user))
+businesses$reviewed <- FALSE
+businessidx <- hashmap(businesses$business_id,1:nrow(businesses))
+useridx <- hashmap(users$user_id,1:nrow(users))
+
+users$reviews <- 0
+users$reviewSSE <- 0
+for (i in 1:nrow(reviews)){
+  bidx <- businessidx[[reviews$business_id[i]]]
+  true_stars <- businesses$stars[bidx]
+  businesses$reviewed[bidx] <- TRUE
+  reviews$true_stars[i] <- true_stars
+  sqerr <- (reviews$stars[i]-true_stars)^2
+  if (!is.na(sqerr)){
+    usidx <- useridx[[reviews$user_id[i]]]
+    users$reviews[usidx] <- users$reviews[usidx] + 1
+    users$reviewSSE[usidx] <- users$reviewSSE[usidx] + sqerr
+  }
   if (i%%1000 == 0){
     print(i)
   }
 }
+businesses <- businesses[businesses$reviewed==TRUE,]
+users$stddev <- (users$reviewSSE / users$reviews)^.5
 
 
-#user <- stream_in(file("D:/code/R/capstone/dataset/user.json"),pagesize=100000)
+save(users,file="rdata/users.RData")
+save(businesses,file="rdata/businesses.RData")
+save(reviews,file="rdata/reviews.RData")
+
